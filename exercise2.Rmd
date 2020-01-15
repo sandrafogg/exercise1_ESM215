@@ -1,0 +1,58 @@
+---
+title: "exercise2_ESM215"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r}
+ex2dat <- read.csv("ex2_sample_data2.csv")
+
+ex2dat
+
+
+table(ex2dat[,5],ex2dat[,6])
+
+
+dat2 <- ex2dat[ex2dat[,6] != -9999,5:8]
+
+head(dat2)
+
+
+dim(dat2)
+# 9990 4
+
+
+mi.empirical(table(dat2[,1],dat2[,2]))
+#0.2286847
+
+
+
+mi.empirical(table(dat2[,1],dat2[,4]))
+# 0.05124749
+
+
+mi.empirical(table(dat2[,1],dat2[,3]))
+# 0.00543883
+
+
+ls()
+# "dat2"      "ex2dat"    "ex2dat_df"
+
+
+dim(dat2g1)
+
+
+#this is the highest in geology
+#then we break dataset into subsets where each subset is one rock type, geology I, II, III
+#we are developing a hierarchy here
+#have to do it inside of each rock class
+#compare within each geological starta
+#once in that rock category, what is the next most associated variable to land cover
+#they all recursively partition the data into different subsets
+#as we work our way down the tree we want to increase predictive sk
+```
+Trying to build a tree graph by subdividing the world by certain factors 
+g1 and g2 are class geologies
