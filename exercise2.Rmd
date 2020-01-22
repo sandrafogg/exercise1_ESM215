@@ -90,11 +90,11 @@ mi.empirical(table(geio5_filtered$landcover, geio5_filtered$winter_rad))
 
 
 
-geo1_df <- data.frame("Flow Accumulation" = 0.005231603, "Winter Radiation" = )
-geo2_df <- data.frame("Flow Accumulation" = , "Winter Radiation" = )
-geo3_df <- data.frame("Flow Accumulation" = , "Winter Radiation" = )
-geo4_df <- data.frame("Flow Accumulation" = , "Winter Radiation" = )
-geo5_df <- data.frame("Flow Accumulation" = , "Winter Radiation" = )
+geo1_df <- data.frame("Flow Accumulation" = 0.005231603, "Winter Radiation" = 0.03752635)
+geo2_df <- data.frame("Flow Accumulation" = 0.01049795, "Winter Radiation" = 0.05438607)
+geo3_df <- data.frame("Flow Accumulation" = 0.007399254, "Winter Radiation" = 0.05876362)
+geo4_df <- data.frame("Flow Accumulation" = 0.01322904, "Winter Radiation" = 0.05161638)
+geo5_df <- data.frame("Flow Accumulation" = 0.00694423, "Winter Radiation" = 0.02607954)
 
 table(ex2dat[,5],ex2dat[,6])
 
