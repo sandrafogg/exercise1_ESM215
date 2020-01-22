@@ -25,6 +25,8 @@ flowi_tidy <- mi.empirical(table(clean_dat2$landcover, clean_dat2$flowaccum))
 
 rad_tidy <- mi.empirical(table(clean_dat2$landcover, clean_dat2$winter_rad))
 
+mi_df <- data.frame("Geology" = 0.2286847, "Flow" = 0.00543883, "Radiation" = 0.05124749)
+mi_df
 
 # find MI in between variables 
 geio1_filtered <- clean_dat2 %>% 
@@ -63,12 +65,36 @@ mi.empirical(table(geio3_filtered$landcover, geio3_filtered$winter_rad))
 
 
 
+geio4_filtered <- clean_dat2 %>% 
+  filter(geology == "4")
+geio4_filtered
+
+mi.empirical(table(geio4_filtered$landcover, geio4_filtered$flowaccum))
+# 0.01322904
+
+mi.empirical(table(geio4_filtered$landcover, geio4_filtered$winter_rad))
+#0.05161638
+
+
+
+geio5_filtered <- clean_dat2 %>% 
+  filter(geology == "5")
+geio5_filtered
+
+mi.empirical(table(geio5_filtered$landcover, geio5_filtered$flowaccum))
+#0.00694423
+
+mi.empirical(table(geio5_filtered$landcover, geio5_filtered$winter_rad))
+# 0.02607954
 
 
 
 
-
-#
+geo1_df <- data.frame("Flow Accumulation" = 0.005231603, "Winter Radiation" = )
+geo2_df <- data.frame("Flow Accumulation" = , "Winter Radiation" = )
+geo3_df <- data.frame("Flow Accumulation" = , "Winter Radiation" = )
+geo4_df <- data.frame("Flow Accumulation" = , "Winter Radiation" = )
+geo5_df <- data.frame("Flow Accumulation" = , "Winter Radiation" = )
 
 table(ex2dat[,5],ex2dat[,6])
 
