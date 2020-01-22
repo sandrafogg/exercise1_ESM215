@@ -10,8 +10,65 @@ knitr::opts_chunk$set(echo = TRUE)
 ```{r}
 ex2dat <- read.csv("ex2_sample_data2.csv")
 
-ex2dat
+clean_dat2 <- ex2dat %>% 
+  filter(landcover != "-9999") %>% 
+    filter(geology != "-9999") %>% 
+    filter(flowaccum != "-9999") %>% 
+    filter(winter_rad != "-9999")
 
+
+
+# find our MI
+geoi_tidy <- mi.empirical(table(clean_dat2$landcover, clean_dat2$geology))
+
+flowi_tidy <- mi.empirical(table(clean_dat2$landcover, clean_dat2$flowaccum))
+
+rad_tidy <- mi.empirical(table(clean_dat2$landcover, clean_dat2$winter_rad))
+
+
+# find MI in between variables 
+geio1_filtered <- clean_dat2 %>% 
+  filter(geology == "1")
+geio1_filtered
+
+mi.empirical(table(geio1_filtered$landcover, geio1_filtered$flowaccum))
+#0.005231603
+
+mi.empirical(table(geio1_filtered$landcover, geio1_filtered$winter_rad))
+#0.03752635
+
+
+
+geio2_filtered <- clean_dat2 %>% 
+  filter(geology == "2")
+geio2_filtered
+
+mi.empirical(table(geio2_filtered$landcover, geio2_filtered$flowaccum))
+#0.01049795
+
+mi.empirical(table(geio2_filtered$landcover, geio2_filtered$winter_rad))
+#0.05438607
+
+
+
+geio3_filtered <- clean_dat2 %>% 
+  filter(geology == "3")
+geio3_filtered
+
+mi.empirical(table(geio3_filtered$landcover, geio3_filtered$flowaccum))
+#0.007399254
+
+mi.empirical(table(geio3_filtered$landcover, geio3_filtered$winter_rad))
+#0.05876362
+
+
+
+
+
+
+
+
+#
 
 table(ex2dat[,5],ex2dat[,6])
 
