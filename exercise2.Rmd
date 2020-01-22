@@ -24,20 +24,34 @@ head(dat2)
 dim(dat2)
 # 9990 4
 
-
-mi.empirical(table(dat2[,1],dat2[,2]))
+#Find the Mutual Information Statistic
+#geology
+geomi <- mi.empirical(table(dat2[,1],dat2[,2]))
 #0.2286847
 
-
-
-mi.empirical(table(dat2[,1],dat2[,4]))
-# 0.05124749
-
-
-mi.empirical(table(dat2[,1],dat2[,3]))
+#flow
+flowmi <- (table(dat2[,1],dat2[,3]))
 # 0.00543883
 
+#radiation
+radiationmi <- mi.empirical(table(dat2[,1],dat2[,4]))
+# 0.05124749
 
+mi_df <- data.frame("Geology" = 0.2286847, "Flow" = 0.00543883, "Radiation" = 0.05124749)
+mi_df
+
+```
+
+Mutual Information Analysis
+```{r, echo = FALSE, warning = FALSE, error = FALSE, message = FALSE}
+mi_table <- kable
+
+
+
+
+```
+
+```{r}
 ls()
 # "dat2"      "ex2dat"    "ex2dat_df"
 
